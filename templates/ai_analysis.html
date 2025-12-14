@@ -1,0 +1,31 @@
+<!-- ai_analysis.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Analysis</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>AI Analysis</h1>
+    <form action="/ai-analysis" method="post">
+        <label for="item_type">Item Type:</label>
+        <input type="text" id="item_type" name="item_type" required><br>
+
+        <label for="quantity">Expected Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction %}
+    <h2>Prediction Result</h2>
+    <p>Item: {{ prediction.item_type }}</p>
+    <p>Expected Quantity: {{ prediction.expected_quantity }}</p>
+    <p>Predicted Price: {{ prediction.predicted_price }}</p>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
